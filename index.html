@@ -21,72 +21,112 @@ Select ONE Additional Feature to Add
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>Quiz About [Me]</h1>
+    <h1>Do you know Gillian?</h1>
     <hr />
-    <!-- Movie Question -->
-    <form id="movie-form">
+    <!-- Music Question -->
+    <form id="music-form">
       <label>
-        🎥 What is my favorite movie?
-        <select id="movie-answer">
-          <option value="movie1">movie 1</option>
-          <option value="movie2">movie 2</option>
-          <option value="movie3">movie 3</option>
-          <option value="movie4">movie 4</option>
+        🎵 Which is my favorite band or artist?
+        <select id="music-answer">
+          <option value="music1">Bob Dylan</option>
+          <option value="music2">Electric Light Orchestra</option>
+          <option value="music3">The Beatles</option>
+          <option value="music4">Fleetwood Mac</option>
         </select>
       </label>
-      <button type="submit">Check Movie Answer</button>
+      <button type="submit">Check Music Answer</button>
     </form>
-    <div id="movie-result">
-      <p id="movie-text"></p>
+    <div id="music-result">
+      <p id="music-text"></p>
     </div>
     <hr />
-    <!-- Book Question -->
-    <form id="book-form">
+    <!-- beatle Question -->
+    <form id="beatle-form">
       <label>
-        📖 What is my favorite book?
-        <select id="book-answer">
-          <option value="book1">book 1</option>
-          <option value="book2">book 2</option>
-          <option value="book3">book 3</option>
-          <option value="book4">book 4</option>
+        🎸 Who is my favorite BEATLE?
+        <select id="beatle-answer">
+          <option value="beatle1">John Lennon</option>
+          <option value="beatle2">Paul McCartney</option>
+          <option value="beatle3">George Harrison</option>
+          <option value="beatle4">Ringo Starr</option>
         </select>
       </label>
-      <button type="submit">Check Book Answer</button>
+      <button type="submit">Check Beatle Answer</button>
     </form>
-    <div id="book-result">
-      <p id="book-text"></p>
+    <div id="beatle-result">
+      <p id="beatle-text"></p>
     </div>
+
+<!-- Sport Question -->
+    <form id="sport-form">
+      <label>
+        💪 Which activity do I do?
+        <select id="sport-answer">
+          <option value="sport1">Weight Lifting</option>
+          <option value="sport2">Fencing</option>
+          <option value="sport3">Gymnastics</option>
+          <option value="sport4">Horseback Riding</option>
+        </select>
+      </label>
+      <button type="submit">Check Activity Answer</button>
+    </form>
+    <div id="sport-result">
+      <p id="sport-text"></p>
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
       
-      //========================Movie Question jQuery Code
-      $("#movie-form").on("submit", function (event) {
+      $("#beatle-form").hide();
+      $("#beatle-result").hide();
+
+      //========================music Question jQuery Code
+      $("#music-form").on("submit", function (event) {
         event.preventDefault();
 
-        var $answer = $("#movie-answer");
+        var $answer = $("#music-answer");
         var answer = $answer.val();
 
-        if (answer === "movie1") {
-          $("#movie-text").text("YESSSS!");
+        if (answer === "music3") {
+          $("#music-text").text("YESSSS!");
+          $("#beatle-form").show();
+          $("#beatle-result").show();
         } 
         else {
-          $("#movie-text").text("Try Again!");
+          $("#music-text").text("Try Again!");
         }
       });
 
-      //=======================Book Question jQuery Code
-      $("#book-form").on("submit", function (event) {
+      //=======================Beatle Question jQuery Code
+      $("#beatle-form").on("submit", function (event) {
         event.preventDefault();
 
-        var $answer = $("#book-answer");
+        var $answer = $("#beatle-answer");
         var answer = $answer.val();
 
-        if (answer === "book1") {
-          $("#book-text").text("YESSSS!");
+        if (answer === "beatle2") {
+          $("#beatle-text").text("YESSSS!");
         } 
         else {
-          $("#book-text").text("Try Again!");
+          $("#beatle-text").text("Try Again!");
         }
+      });
+
+       //=======================Sport Question jQuery Code
+      $("#sport-form").on("submit", function (event) {
+        event.preventDefault();
+
+        var $answer = $("#sport-answer");
+        var answer = $answer.val();
+
+        if (answer === "sport4") {
+          $("#sport-text").text("YESSSS!");
+        } 
+        else {
+          $("#sport-text").text("Try Again!");
+        }
+
+    
       });
       
     </script>
