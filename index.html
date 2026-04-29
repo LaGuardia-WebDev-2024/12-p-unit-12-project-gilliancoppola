@@ -55,6 +55,8 @@ Select ONE Additional Feature to Add
     </form>
     <div id="beatle-result">
       <p id="beatle-text"></p>
+      <img id="paul" src="https://i.pinimg.com/originals/15/dc/90/15dc90255fcb12d12ad3d3a793f68d5b.jpg"
+      width="250">
     </div>
 
 <!-- Sport Question -->
@@ -80,6 +82,8 @@ Select ONE Additional Feature to Add
       $("#beatle-form").hide();
       $("#beatle-result").hide();
 
+      $("#paul").hide();
+
       //========================music Question jQuery Code
       $("#music-form").on("submit", function (event) {
         event.preventDefault();
@@ -91,6 +95,7 @@ Select ONE Additional Feature to Add
           $("#music-text").text("YESSSS!");
           $("#beatle-form").show();
           $("#beatle-result").show();
+         
         } 
         else {
           $("#music-text").text("Try Again!");
@@ -105,7 +110,8 @@ Select ONE Additional Feature to Add
         var answer = $answer.val();
 
         if (answer === "beatle2") {
-          $("#beatle-text").text("YESSSS!");
+          $("#beatle-text").text("YESSSS!"); 
+          $("#paul").show();
         } 
         else {
           $("#beatle-text").text("Try Again!");
@@ -122,9 +128,21 @@ Select ONE Additional Feature to Add
         if (answer === "sport4") {
           $("#sport-text").text("YESSSS!");
         } 
-        else {
+
+        if (answer === "sport1") {
+          $("#sport-text").text("YESSSS!");
+        } 
+
+         if (answer === "sport2") {
           $("#sport-text").text("Try Again!");
-        }
+        } 
+
+         if (answer === "sport3") {
+          $("#sport-text").text("I did for 6 years but not anymore!");
+        } 
+       // if {
+       //   $("#sport-text").text("Try Again!");
+       // }
 
     
       });
