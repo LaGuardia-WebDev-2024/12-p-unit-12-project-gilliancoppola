@@ -21,28 +21,32 @@ Select ONE Additional Feature to Add
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>Do you know Gillian?</h1>
+    <h1 class="questions">Do you know Gillian?</h1>
     <hr />
-    <!-- Music Question -->
-    <form id="music-form">
-      <label>
-        🎵 Which is my favorite band or artist?
-        <select id="music-answer">
-          <option value="music1">Bob Dylan</option>
-          <option value="music2">Electric Light Orchestra</option>
-          <option value="music3">The Beatles</option>
-          <option value="music4">Fleetwood Mac</option>
+    <!-- band Question -->
+    <form id="band-form">
+      <label class="questions">
+        🎵 Which is my favorite band?
+        <select id="band-answer">
+          <option value="band1">Pink Floyd</option>
+          <option value="band2">Led Zeppelin</option>
+          <option value="band3">The Beatles</option>
+          <option value="band4">Fleetwood Mac</option>
         </select>
       </label>
-      <button type="submit">Check Music Answer</button>
+      <button class="button" type="submit">Check band Answer</button>
     </form>
-    <div id="music-result">
-      <p id="music-text"></p>
+    <div id="band-result">
+      <p id="band-text"></p>
+      <img id="beatles-img" src="https://i8.amplience.net/i/naras/The_Beatles_BBC_Mark_Colleen_Hayward_Referns_Getty_Images" 
+      width="500">
+      <img id="floyd" src="https://i.pinimg.com/474x/f7/0b/c4/f70bc4e8611d8171ec6dcf43445064fd.jpg" width="450">
     </div>
+    
     <hr />
-    <!-- beatle Question -->
+    <!-- Beatle Question -->
     <form id="beatle-form">
-      <label>
+      <label class="questions">
         🎸 Who is my favorite BEATLE?
         <select id="beatle-answer">
           <option value="beatle1">John Lennon</option>
@@ -51,7 +55,7 @@ Select ONE Additional Feature to Add
           <option value="beatle4">Ringo Starr</option>
         </select>
       </label>
-      <button type="submit">Check Beatle Answer</button>
+      <button class="button" type="submit">Check Beatle Answer</button>
     </form>
     <div id="beatle-result">
       <p id="beatle-text"></p>
@@ -59,21 +63,21 @@ Select ONE Additional Feature to Add
       width="250">
     </div>
 
-<!-- Sport Question -->
-    <form id="sport-form">
-      <label>
-        💪 Which activity do I do?
-        <select id="sport-answer">
-          <option value="sport1">Weight Lifting</option>
-          <option value="sport2">Fencing</option>
-          <option value="sport3">Gymnastics</option>
-          <option value="sport4">Horseback Riding</option>
+<!-- major Question -->
+    <form id="major-form">
+      <label class="questions">
+         🎓  Which major am I?
+        <select id="major-answer">
+          <option value="major1">Vocal</option>
+          <option value="major2">Tech</option>
+          <option value="major3">Instrumental</option>
+          <option value="major4">Art</option>
         </select>
       </label>
-      <button type="submit">Check Activity Answer</button>
+      <button class="button" type="submit">Check Major Answer</button>
     </form>
-    <div id="sport-result">
-      <p id="sport-text"></p>
+    <div id="major-result">
+      <p id="major-text"></p>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -81,25 +85,40 @@ Select ONE Additional Feature to Add
       
       $("#beatle-form").hide();
       $("#beatle-result").hide();
+      $("#beatles-img").hide();
 
       $("#paul").hide();
 
-      //========================music Question jQuery Code
-      $("#music-form").on("submit", function (event) {
-        event.preventDefault();
+      $("#floyd").hide();
 
-        var $answer = $("#music-answer");
+      //========================band Question jQuery Code
+      $("#band-form").on("submit", function (event) {
+        event.preventDefault();
+         $("#beatle-form").hide();
+      $("#beatle-result").hide();
+
+      $("#paul").hide();
+      $("#beatles-img").hide();
+
+      $("#floyd").hide();
+
+        var $answer = $("#band-answer");
         var answer = $answer.val();
 
-        if (answer === "music3") {
-          $("#music-text").text("YESSSS!");
+        if (answer === "band3") {
+          $("#band-text").text("Yes! I love so many bands, but there's just something about the Fab Four!!");
           $("#beatle-form").show();
           $("#beatle-result").show();
+          $("#beatles-img").show();
          
         } 
-        else {
-          $("#music-text").text("Try Again!");
-        }
+
+        if (answer === "band1") {
+          $("#band-text").text("Not quite, but it's a very close call!");
+          $("#floyd").show();  
+        } 
+        
+
       });
 
       //=======================Beatle Question jQuery Code
@@ -110,38 +129,38 @@ Select ONE Additional Feature to Add
         var answer = $answer.val();
 
         if (answer === "beatle2") {
-          $("#beatle-text").text("YESSSS!"); 
+          $("#beatle-text").text("Yes! Paul and I share a bunch in common and his post-Beatles solo career was just the best."); 
           $("#paul").show();
         } 
         else {
-          $("#beatle-text").text("Try Again!");
+          $("#beatle-text").text("I love him too, but no. They say you don't choose your favorite Beatle, kind of like a spirit animal...");
         }
       });
 
-       //=======================Sport Question jQuery Code
-      $("#sport-form").on("submit", function (event) {
+       //=======================major Question jQuery Code
+      $("#major-form").on("submit", function (event) {
         event.preventDefault();
 
-        var $answer = $("#sport-answer");
+        var $answer = $("#major-answer");
         var answer = $answer.val();
 
-        if (answer === "sport4") {
-          $("#sport-text").text("YESSSS!");
+        if (answer === "major4") {
+          $("#major-text").text("Correct! I'm majoring in art in college too");
         } 
 
-        if (answer === "sport1") {
-          $("#sport-text").text("YESSSS!");
+        if (answer === "major1") {
+          $("#major-text").text("Not quite!");
         } 
 
-         if (answer === "sport2") {
-          $("#sport-text").text("Try Again!");
+         if (answer === "major2") {
+          $("#major-text").text("Not quite!");
         } 
 
-         if (answer === "sport3") {
-          $("#sport-text").text("I did for 6 years but not anymore!");
+         if (answer === "major3") {
+          $("#major-text").text("Nope, though I religiously play guitar.");
         } 
        // if {
-       //   $("#sport-text").text("Try Again!");
+       //   $("#major-text").text("Try Again!");
        // }
 
     

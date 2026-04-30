@@ -2,7 +2,7 @@ body {
   background-image: url("https://www.rollingstone.com/wp-content/uploads/2021/07/pink-floyd-1975.jpg");
 }
 
-#music-result {
+#band-result {
   background: rgba(11, 119, 74, 0.65);
   border: 5px solid rgb(3, 46, 28);
   font-size: 24px;
@@ -20,7 +20,7 @@ body {
   margin-bottom: 20px;
 }
 
-#sport-result {
+#major-result {
   background: rgba(143, 21, 61, 0.65);
   border: 5px solid rgb(65, 8, 25);
   font-size: 24px;
@@ -32,4 +32,14 @@ body {
 hr {
   height: 5px;
   background-color: black;
+}
+
+.questions{
+  background: rgba(179, 139, 206, 0.65);
+  border: 5px solid rgb(224, 174, 189);
+}
+
+.button{
+  background: rgba(224, 174, 189);
+  border: 5px solid rgb(179, 139, 206, 0.65);
 }
