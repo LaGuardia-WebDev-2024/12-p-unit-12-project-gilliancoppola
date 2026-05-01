@@ -9,7 +9,7 @@ Select ONE Additional Feature to Add
 [ no ] Feature 1 - Google Font
 [ no ] Feature 2 - Chain jQuery Methods
 [ no ] Feature 3 - .mouseover() & .mouseOut() Methods
-[ no ] Feature 4 - :hover Feature 
+[ yes ] Feature 4 - :hover Feature 
 [ no ] Feature 5 - Add an Additional Interactive Drop-down
 -->
 
@@ -41,6 +41,8 @@ Select ONE Additional Feature to Add
       <img id="beatles-img" src="https://i8.amplience.net/i/naras/The_Beatles_BBC_Mark_Colleen_Hayward_Referns_Getty_Images" 
       width="500">
       <img id="floyd" src="https://i.pinimg.com/474x/f7/0b/c4/f70bc4e8611d8171ec6dcf43445064fd.jpg" width="450">
+      <img id="zep" src="https://i.guim.co.uk/img/media/be11aedce3144adea1f8097577f0358d000e50c5/0_275_1237_742/master/1237.jpg?width=465&dpr=1&s=none&crop=none">
+      <img id="mac" src="https://www.udiscovermusic.com/wp-content/uploads/2022/12/Fleetwood-Mac-GettyImages-85217469-1000x600.jpg" width="500">
     </div>
     
     <hr />
@@ -59,9 +61,11 @@ Select ONE Additional Feature to Add
     </form>
     <div id="beatle-result">
       <p id="beatle-text"></p>
-      <img id="paul" src="https://i.pinimg.com/originals/15/dc/90/15dc90255fcb12d12ad3d3a793f68d5b.jpg"
-      width="250">
-    </div>
+      <img id="paul" src="https://i.pinimg.com/originals/15/dc/90/15dc90255fcb12d12ad3d3a793f68d5b.jpg" width="350">
+      <img id="john" src="https://cdn.britannica.com/27/262227-050-E8D701BC/John-Lennon-The-Beatles-1968.jpg" width="400">
+      <img id="george" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkQMUDbitvKicL4pHMmDrOkGegY-Hc1lKGt5zDycd9FupC8taq13adg0iKN9Alz58G0YCvtarttQnitI0ABy3qmoNy2yO3dn64V3gxHV8hmLTJl48-jhIOgNOJI5ZTCJEEQc-cYctf/s1600/George+Harrison+george1965.jpg" width="400">
+      <img id="ringo" src="https://cdn.shopify.com/s/files/1/0828/5415/0477/files/4202525895_808bda37fe_o.jpg" width="400">
+    </div> 
 
 <!-- major Question -->
     <form id="major-form">
@@ -78,6 +82,10 @@ Select ONE Additional Feature to Add
     </form>
     <div id="major-result">
       <p id="major-text"></p>
+      <img id="vocal" src="https://thesciencesurvey.com/wp-content/uploads/2023/11/Stevie-Nicks-article-photo-1.png" width="400">
+      <img id="tech" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhm3Af7AtWJFCs10tsoVCbaPeCa-UB8FHoMueTu3ru4nYR6dHfRVmaKFGAH5j1aVL0auoyHFud2mNNO4W8eP8yJtzlSE4a3lGBuxSAhgHjxV34-KwhSKEDv2npJFww4M-LtG1Z-ZyGwekA/s1600/gNUnY3N6xufynPmUYHIMDwoxuQqxIX8VpWg2ygiRSLQ.jpg" width="450">
+      <img id="inst" src="https://preview.redd.it/look-around-choose-your-own-ground-for-long-you-live-and-v0-uwk4aai1vdyb1.jpg?auto=webp&s=49b4f5578d5df4b6359b4591946ad3dfe53d9c9e" width="400">
+      <img id="art" src="https://byronsmuse.wordpress.com/wp-content/uploads/2017/01/syd-80.jpg" width="570">
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -88,8 +96,18 @@ Select ONE Additional Feature to Add
       $("#beatles-img").hide();
 
       $("#paul").hide();
+      $("#john").hide();
+      $("#george").hide();
+      $("#ringo").hide();
 
       $("#floyd").hide();
+      $("#zep").hide();
+      $("#mac").hide();
+
+      $("#vocal").hide();
+      $("#tech").hide();
+      $("#inst").hide();
+      $("#art").hide();
 
       //========================band Question jQuery Code
       $("#band-form").on("submit", function (event) {
@@ -100,7 +118,10 @@ Select ONE Additional Feature to Add
       $("#paul").hide();
       $("#beatles-img").hide();
 
+      
       $("#floyd").hide();
+      $("#zep").hide();
+      $("#mac").hide();
 
         var $answer = $("#band-answer");
         var answer = $answer.val();
@@ -117,6 +138,16 @@ Select ONE Additional Feature to Add
           $("#band-text").text("Not quite, but it's a very close call!");
           $("#floyd").show();  
         } 
+
+        if (answer === "band2") {
+          $("#band-text").text("Not quite, but it's a very close call!");
+          $("#zep").show();  
+        } 
+
+         if (answer === "band4") {
+          $("#band-text").text("Not quite, but it's a very close call!");
+          $("#mac").show();  
+        } 
         
 
       });
@@ -125,6 +156,11 @@ Select ONE Additional Feature to Add
       $("#beatle-form").on("submit", function (event) {
         event.preventDefault();
 
+        $("#paul").hide();
+      $("#john").hide();
+      $("#george").hide();
+      $("#ringo").hide();
+
         var $answer = $("#beatle-answer");
         var answer = $answer.val();
 
@@ -132,32 +168,50 @@ Select ONE Additional Feature to Add
           $("#beatle-text").text("Yes! Paul and I share a bunch in common and his post-Beatles solo career was just the best."); 
           $("#paul").show();
         } 
-        else {
-          $("#beatle-text").text("I love him too, but no. They say you don't choose your favorite Beatle, kind of like a spirit animal...");
-        }
+         if (answer === "beatle1") {
+          $("#beatle-text").text("I love him too, but no. They say you don't choose your favorite Beatle, kind of like a spirit animal..."); 
+          $("#john").show();
+        } 
+        if (answer === "beatle3") {
+          $("#beatle-text").text("I love him too, but no. They say you don't choose your favorite Beatle, kind of like a spirit animal..."); 
+          $("#george").show();
+        } 
+        if (answer === "beatle4") {
+          $("#beatle-text").text("I love him too, but no. They say you don't choose your favorite Beatle, kind of like a spirit animal..."); 
+          $("#ringo").show();
+        } 
+        
       });
 
        //=======================major Question jQuery Code
       $("#major-form").on("submit", function (event) {
         event.preventDefault();
+        $("#vocal").hide();
+      $("#tech").hide();
+      $("#inst").hide();
+      $("#art").hide();
 
         var $answer = $("#major-answer");
         var answer = $answer.val();
 
         if (answer === "major4") {
-          $("#major-text").text("Correct! I'm majoring in art in college too");
+          $("#major-text").text("Correct! I'm majoring in art in college too.");
+          $("#art").show();
         } 
 
         if (answer === "major1") {
           $("#major-text").text("Not quite!");
+          $("#vocal").show();
         } 
 
          if (answer === "major2") {
           $("#major-text").text("Not quite!");
+          $("#tech").show();
         } 
 
          if (answer === "major3") {
           $("#major-text").text("Nope, though I religiously play guitar.");
+          $("#inst").show();
         } 
        // if {
        //   $("#major-text").text("Try Again!");
