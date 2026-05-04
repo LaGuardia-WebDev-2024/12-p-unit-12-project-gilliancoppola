@@ -1,16 +1,16 @@
 <!-- Unit 12 Project
 Requirements
 [ x ] Two Interactive Drop-down Inputs 
-[  ] Standard Animation
-[  ] Custom Animation
+[ x ] Standard Animation
+[ x ] Custom Animation
 [ x ] Include Three Images
 
 Select ONE Additional Feature to Add  
 [ no ] Feature 1 - Google Font
 [ no ] Feature 2 - Chain jQuery Methods
-[ no ] Feature 3 - .mouseover() & .mouseOut() Methods
+[ yes ] Feature 3 - .mouseover() & .mouseOut() Methods
 [ yes ] Feature 4 - :hover Feature 
-[ no ] Feature 5 - Add an Additional Interactive Drop-down
+[ yes ] Feature 5 - Add an Additional Interactive Drop-down
 -->
 
 <!DOCTYPE html>
@@ -128,29 +128,45 @@ Select ONE Additional Feature to Add
 
         if (answer === "band3") {
           $("#band-text").text("Yes! I love so many bands, but there's just something about the Fab Four!!");
-          $("#beatle-form").show();
-          $("#beatle-result").show();
-          $("#beatles-img").show();
-         
-        } 
+          $("#beatle-form").fadeIn("slow");
+          $("#beatle-result").fadeIn("slow");
+          $("#beatles-img").fadeIn();
+        }
+     
+  
+        
+          
 
         if (answer === "band1") {
           $("#band-text").text("Not quite, but it's a very close call!");
-          $("#floyd").show();  
+          $("#floyd").fadeIn();  
         } 
 
         if (answer === "band2") {
           $("#band-text").text("Not quite, but it's a very close call!");
-          $("#zep").show();  
+          $("#zep").fadeIn();  
         } 
 
          if (answer === "band4") {
           $("#band-text").text("Not quite, but it's a very close call!");
-          $("#mac").show();  
+          $("#mac").fadeIn();  
         } 
         
 
       });
+
+
+     $("#beatles-img").mouseover(function(){
+            $("#beatles-img").animate({
+              width: "700px"
+            });
+        });
+
+           $("#beatles-img").mouseout(function(){
+             $("#beatles-img").animate({
+              width: "500px"
+            });
+          });
 
       //=======================Beatle Question jQuery Code
       $("#beatle-form").on("submit", function (event) {
@@ -166,22 +182,35 @@ Select ONE Additional Feature to Add
 
         if (answer === "beatle2") {
           $("#beatle-text").text("Yes! Paul and I share a bunch in common and his post-Beatles solo career was just the best."); 
-          $("#paul").show();
+          $("#paul").fadeIn();
         } 
          if (answer === "beatle1") {
           $("#beatle-text").text("I love him too, but no. They say you don't choose your favorite Beatle, kind of like a spirit animal..."); 
-          $("#john").show();
+          $("#john").fadeIn();
         } 
         if (answer === "beatle3") {
           $("#beatle-text").text("I love him too, but no. They say you don't choose your favorite Beatle, kind of like a spirit animal..."); 
-          $("#george").show();
+          $("#george").fadeIn();
         } 
         if (answer === "beatle4") {
           $("#beatle-text").text("I love him too, but no. They say you don't choose your favorite Beatle, kind of like a spirit animal..."); 
-          $("#ringo").show();
+          $("#ringo").fadeIn();
         } 
         
       });
+
+
+      $("#paul").mouseover(function(){
+            $("#paul").animate({
+              width: "550px"
+            });
+        });
+
+           $("#paul").mouseout(function(){
+             $("#paul").animate({
+              width: "350px"
+            });
+          });
 
        //=======================major Question jQuery Code
       $("#major-form").on("submit", function (event) {
@@ -196,22 +225,22 @@ Select ONE Additional Feature to Add
 
         if (answer === "major4") {
           $("#major-text").text("Correct! I'm majoring in art in college too.");
-          $("#art").show();
+          $("#art").fadeIn();
         } 
 
         if (answer === "major1") {
           $("#major-text").text("Not quite!");
-          $("#vocal").show();
+          $("#vocal").fadeIn();
         } 
 
          if (answer === "major2") {
           $("#major-text").text("Not quite!");
-          $("#tech").show();
+          $("#tech").fadeIn();
         } 
 
          if (answer === "major3") {
           $("#major-text").text("Nope, though I religiously play guitar.");
-          $("#inst").show();
+          $("#inst").fadeIn();
         } 
        // if {
        //   $("#major-text").text("Try Again!");
@@ -219,6 +248,18 @@ Select ONE Additional Feature to Add
 
     
       });
+
+      $("#art").mouseover(function(){
+            $("#art").animate({
+              width: "770px"
+            });
+        });
+
+          $("#art").mouseout(function(){
+             $("#art").animate({
+              width: "570px"
+            });
+          });
       
     </script>
   </body>
